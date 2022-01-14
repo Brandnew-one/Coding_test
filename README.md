@@ -7,6 +7,15 @@
 | 3 | 기능개발 | 스택 | [링크](https://programmers.co.kr/learn/courses/30/lessons/42586) | [상원](https://github.com/Brandnew-one/Coding_test/blob/master/sangwon/Programmers/42586.cpp)  |
 
 
+## 2021.12.26 ~ 2022.01.08
+
+| No | Problem | Category | Link | Solution |
+| :-: | :-: | :-: | :-: | :-: |
+| 1 | 수식 최대화 | 완전탐색 | [링크](https://programmers.co.kr/learn/courses/30/lessons/67257) | [상원](https://github.com/Brandnew-one/Coding_test/blob/master/sangwon/Programmers/67257.cpp)  |
+| 2 | 네트워크 | DFS/BFS | [링크](https://programmers.co.kr/learn/courses/30/lessons/43162) | [상원](https://github.com/Brandnew-one/Coding_test/blob/master/sangwon/Programmers/43162.cpp)  |
+| 3 | 거리두기 확인하기 | 시뮬레이션/BFS | [링크](https://programmers.co.kr/learn/courses/30/lessons/81302) | [상원](https://github.com/Brandnew-one/Coding_test/blob/master/sangwon/Programmers/81302.cpp)  |
+| 4 | 정수 삼각형 | DP | [링크](https://programmers.co.kr/learn/courses/30/lessons/43105) | [상원](https://github.com/Brandnew-one/Coding_test/blob/master/sangwon/Programmers/43105.cpp)  |
+
 ## 2022.01.09 ~ 2022.01.15
 
 * 백트랙킹
