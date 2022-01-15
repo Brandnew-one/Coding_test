@@ -1,0 +1,84 @@
+#include <iostream>
+#include <string>
+#include <vector>
+
+#define X first
+#define Y second
+
+int dx[12] = { 1, 1, 0, -1, -1, -1, 0, 1, -2, 0, 2, 0};
+int dy[12] = { 0, 1, 1, 1, 0, -1, -1, -1, 0, 2, 0, -2};
+
+using namespace std;
+
+vector<pair<int, int>> person;
+
+void init(vector<string> place) {
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            if (place[i][j] == 'P') {
+                person.push_back(make_pair(i, j));
+            }
+        }
+    }
+}
+
+bool check(vector<string> place, int cx, int cy, int nx, int ny) {
+    if (nx == cx + 1 && ny == cy + 1 && place[cx + 1][cy] == 'X' && place[cx][cy + 1] == 'X') return true;
+    else if (nx == cx + 1 && ny == cy - 1 && place[cx][cy - 1] == 'X' && place[cx + 1][cy] == 'X') return true;
+    else if (nx == cx - 1 && ny == cy - 1 && place[cx][cy - 1] == 'X' && place[cx - 1][cy] == 'X') return true;
+    else if (nx == cx - 1 && ny == cy + 1 && place[cx - 1][cy] == 'X' && place[cx][cy + 1] == 'X') return true;
+
+    else if (nx == cx - 2 && ny == cy && place[cx - 1][cy] == 'X') return true;
+    else if (nx == cx && ny == cy + 2 && place[cx][cy + 1] == 'X') return true;
+    else if (nx == cx + 2 && ny == cy && place[cx + 1][cy] == 'X') return true;
+    else if (nx == cx && ny == cy - 2 && place[cx][cy - 1] == 'X') return true;
+    else return false;
+}
+
+bool room(vector<string> place) {
+    bool res = true;
+    int pcount = person.size();
+
+    while (!person.empty()) {
+        pair<int, int>cur = person.front();
+
+        person.erase(person.begin());
+        for (int dir = 0; dir < 12; dir++) {
+            int nx = cur.X + dx[dir];
+            int ny = cur.Y + dy[dir];
+            if (nx < 0 || nx >= 5 || ny < 0 || ny >= 5) continue;
+            if (place[nx][ny] == 'O' || place[nx][ny] == 'X') continue;
+            if (place[nx][ny] == 'P') {
+                if (check(place, cur.X, cur.Y, nx, ny) == false) return false;
+            }
+        }
+    }
+    return res;
+}
+
+vector<int> solution(vector<vector<string>> places) {
+    vector<int> answer;
+    for (int i = 0; i < places.size(); i++) {
+        vector<string> place;
+        //for (int j = 0; j < 5; j++) {
+        place = places[i];
+        //}
+        init(place);
+        answer.push_back(int(room(place)));
+        person.clear();
+    }
+    return answer;
+}
+
+int main() {
+    vector<vector<string>> places = { {"POOOP", "OXXOX", "OPXPX", "OOXOX", "POXXP"},
+        {"POOPX", "OXPXP", "PXXXO", "OXXXO", "OOOPP"},{"PXOPX", "OXOXP", "OXPOX", "OXXOP", "PXPOX"},
+        {"OOOXX", "XOOOX", "OOOXX", "OXOOX", "OOOOO"},{"PXPXP", "XPXPX", "PXPXP", "XPXPX", "PXPXP"} };
+
+    vector<int> output = solution(places);
+    for (int i = 0; i < places.size(); i++) {
+        cout << output[i] << " ";
+    }
+    cout << "\n";
+
+}
