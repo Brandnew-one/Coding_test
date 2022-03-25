@@ -1,7 +1,5 @@
 ## 2021.12.19 ~ 2021.12.25
 
-TEST
-
 | No | Problem | Category | Link | Solution |
 | :-: | :-: | :-: | :-: | :-: |
 | 1 | 카카오프렌즈 컬러링북 | BFS | [링크](https://programmers.co.kr/learn/courses/30/lessons/1829) | [상원](https://github.com/Brandnew-one/Coding_test/blob/master/sangwon/Programmers/1829.cpp)  |
